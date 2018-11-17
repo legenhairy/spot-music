@@ -14,6 +14,9 @@ class App extends Component {
     console.log('this.state', this.state);
   }
 
+  onSearchChange = (event) => {
+    this.setState({searched: event.target.value});
+  }
 
   render() {
   	return (
@@ -25,7 +28,7 @@ class App extends Component {
               type="text"
               placeholder="Search for an artist"
               value={this.state.searched}
-              onChange = {event => {this.setState({searched: event.target.value})}}
+              onChange = {this.onSearchChange}
               onKeyPress = {event => {
                 if(event.key === 'Enter') {
                   this.search()
