@@ -28,7 +28,7 @@ class App extends Component {
               onChange = {event => {this.setState({searched: event.target.value})}}
               onKeyPress = {event => {
                 if(event.key === 'Enter') {
-                   this.search()
+                  this.search()
                 }
               }}
             />
