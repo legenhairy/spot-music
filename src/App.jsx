@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import './App.css';
 
 class App extends Component {
   render() {
   	return (
-  	  <div>	
+  	  <div className="App">	
   	    <div className="App-title">Spot Music</div>
   	    <div>
   	      <input placeholder="search an artist..." />
-  	      <button>Search</button>
+  	      <button>Submit</button>
   	    </div>
   	  	<div className="Profile">
   	  	  <div>Artist Picture</div>
