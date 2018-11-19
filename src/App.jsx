@@ -12,6 +12,9 @@ class App extends Component {
 
   search() {
     console.log('this.state', this.state);
+    const BASE_URL = 'https://api.spotify.com/v1/search?';
+    
+    console.log('BASE_URL', BASE_URL);
   }
 
   onSearchChange = (event) => {
