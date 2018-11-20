@@ -6,8 +6,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searched: ''
-    
+      searched: '',
+      artist: null
     }
   }
 
@@ -15,13 +15,13 @@ class App extends Component {
     console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     const FETCH_URL = BASE_URL + 'q=' + this.state.searched
-                      + '&type=artist&limit=1' 
-    var accessToken = 'placeholder'
-    var headers = new Headers();
+                      + '&type=artist&limit=1'; 
+    var accessToken = 'BQCfi1DKNKzWxfUXTywJLt3_LMtmmPlMhwgbvAJQgbPNUCo2ZKqqfzeA4BnYQfEbqDNfxCRsWf4gHKCfALwr0CYtg7R15zmhXSgaiAJBoulai3d6tG9Z3Mvn4Iw-eOAzH2ewZuDMjnNLBPbZYGqc-dmA47cJIy_WUH-eOfzXjxvPzRvhbVdqPa8a'
+    var myHeaders = new Headers();
     
     var myOptions = {
       method: 'GET',
-      headers:{
+      headers: {
         'Authorization': 'Bearer ' + accessToken
       },
       mode: 'cors',
@@ -30,7 +30,11 @@ class App extends Component {
 
     fetch(FETCH_URL, myOptions)
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => {
+        const artist = json.artists.items[0];
+        console.log('artist', artist);
+        this.setState({artist});
+      })
   }
 
   onSearchChange = (event) => {
